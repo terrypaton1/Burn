@@ -18,7 +18,7 @@ I am making this project open source as the primary focus is to show some of wha
 </p>
 
 ## Origin
-Originally I had the idea for this game around 2013, to work as a collaboration project. That fizzled out, but this seemed the perfect game for me to develop into a small polished project. During the development of this version, the game changed a lot in order to limit scope, when ideas proved poor, or because it just wasn't fun. Lots changed and it was was fun changing it.
+Originally I had the idea for this game around 2011, to work as a collaboration project. That fizzled out, but this seemed the perfect game for me to develop into a small polished project. During the development of this version, the game changed a lot in order to limit scope, when ideas proved poor, or because it just wasn't fun. Lots changed and it was was fun changing it.
 
 ## Notes
 - The game is a bit weird, intentionally. I wanted to have fun with this project so the idea of changing the ship into various things that have had influences on me added a bit of much needed 'spice'.
