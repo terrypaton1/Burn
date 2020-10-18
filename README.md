@@ -7,6 +7,15 @@ Available to play in the Android google play store: <a href="https://play.google
 A small mobile game 'Burn' developed in Unity, based on a concept from around 2013, by Terry Paton.
 Please feel free to contact me: <a href="mailto: terrypaton1@gmail.com"> terrypaton1@gmail.com </a>
 
+## How to I open it?
+Using Unity 2019+ open the project in the folder, 'Burn'. Press play. The game should intercept the play and load the games scenes. The game is setup that it requires the scene 'Loading' to be run first.
+There is a tool for navigating to the games scenes. You can find this under the menu Burn > Burn Window
+<p align="center"> 
+    <img src="./res/BurnWindow.jpg">
+</p>
+
+# Why
+
 The sun has gone super nova, vaporising most of the solar system. Steer your ship through the rubble and dangers to escape.
 
 Essentially a very simple dodge and survive game. The primary focus is on clean optimised project and code with a finished published product.
@@ -25,9 +34,17 @@ Originally I had the idea for this game around 2011, to work as a collaboration 
 - The techniques used to develop this game are the result of years of experience in making things. I hope they can help you.
 - There was no easy mode originally, the game was meant to be brutally hard. But, after my daughter, Pixel, play tested a few times for me it was apparent there had to be one. Thanks Pixel!
 
-## Extras
+# Extras
 There are a few development screenshots in /dev_screenshots/
 
 <p align="center"> 
     <img src="./dev_screenshots/screen_08.jpg">
+</p>
+
+These are also the sketchbook scribbles I made during the development of Burn.
+
+<p align="center"> 
+    <img src="./dev_screenshots/sketch_09.jpg">
+    <img src="./dev_screenshots/sketch_08.jpg">
+    <img src="./dev_screenshots/sketch_07.jpg">
 </p>
