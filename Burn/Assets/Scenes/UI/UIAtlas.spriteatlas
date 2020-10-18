@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UIAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 2
+      m_CompressionQuality: 90
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: c6e72ab9552ef4bec9e359931a67a39f, type: 3}
+    totalSpriteSurfaceArea: 491776
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: dd2eb64135cc44500a036474c7043949, type: 3}
+  - {fileID: 21300000, guid: 13967d810dd0d4aa08012fe6accf82b7, type: 3}
+  - {fileID: 21300000, guid: b630d632a9322477bb15450fef1a6d59, type: 3}
+  - {fileID: 21300000, guid: 03641fc2f99f64ba2a7d902d65569e31, type: 3}
+  - {fileID: 21300000, guid: 0f79c3f96c60245d19c2e3c21135c080, type: 3}
+  - {fileID: 21300000, guid: a0880bae3a0c349caa0c0e612eda7f11, type: 3}
+  - {fileID: 21300000, guid: ad40284fa15ae46b3ab3a2b589e39fc9, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - DamageGradient
+  - Twitter_Social_Icon_Rounded_Square_Color
+  - DistanceBar
+  - illustratedHead
+  - TransitionGraphic
+  - DistanceBarShipMarker
+  - ShipIcon
+  m_Tag: UIAtlas
+  m_IsVariant: 0
