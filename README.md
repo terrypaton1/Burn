@@ -8,7 +8,7 @@ A small mobile game 'Burn' developed in Unity, based on a concept from around 20
 Please feel free to contact me: <a href="mailto: terrypaton1@gmail.com"> terrypaton1@gmail.com </a>
 
 ## How to I open it?
-Using Unity 2019+ open the project in the folder, 'Burn'. Press play. The game should intercept the play and load the games scenes. The game is setup that it requires the scene 'Loading' to be run first.
+Using Unity 2019.4+ open the project in the folder, 'Burn'. Press play. The game should intercept the play and load the games scenes. The game is setup that it requires the scene 'Loading' to be run first.
 There is a tool for navigating to the games scenes. You can find this under the menu Burn > Burn Window
 <p align="center"> 
     <img src="./res/BurnWindow.jpg">
