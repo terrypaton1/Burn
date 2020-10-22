@@ -23,7 +23,7 @@ public class Meteorite : RespawnableObject
 
     private void RandomlyScale()
     {
-        transform.localScale = Vector3.one * Random.Range(0.7f, 3f);
+        visualObject.localScale = Vector3.one * Random.Range(0.7f, 1.5f);
     }
 
     private void RandomlyRotate()

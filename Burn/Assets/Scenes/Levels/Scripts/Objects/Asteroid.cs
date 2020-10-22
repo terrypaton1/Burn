@@ -30,7 +30,7 @@ public class Asteroid : RespawnableObject
 
     private void RandomizeScale()
     {
-        transform.localScale = Vector3.one * Random.Range(0.7f, 1.1f);
+        visualObject.localScale = Vector3.one * Random.Range(0.7f, 1.1f);
     }
 
     private void RandomizeRotation()
