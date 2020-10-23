@@ -1773,7 +1773,7 @@ PrefabInstance:
     - target: {fileID: -4758041277956623720, guid: a57957084279f440993eba0c85587568,
         type: 3}
       propertyPath: meteorLaunchForce.x
-      value: 10
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: -4758041277956623720, guid: a57957084279f440993eba0c85587568,
         type: 3}

@@ -138,6 +138,7 @@ public class Cell : MonoBehaviour
         {
             respawnableObject.DisableVisuals();
         }
+        displayEnabled = false;
     }
 
     public virtual void EnableRenderers()

@@ -51,6 +51,7 @@ public class Meteorite : RespawnableObject
     private void Stop()
     {
         rigidBodyRef.isKinematic = true;
+        colliderRef.enabled = false;
     }
 
     public override void SetCollidedWith()
@@ -70,7 +71,9 @@ public class Meteorite : RespawnableObject
 
     private IEnumerator LaunchSequence(Vector3 force)
     {
+        EnableVisuals();
         rigidBodyRef.isKinematic = false;
+        colliderRef.enabled = true;
         rigidBodyRef.WakeUp();
 
         yield return null;
@@ -84,5 +87,17 @@ public class Meteorite : RespawnableObject
         transform.position = position;
         rigidBodyRef.angularVelocity = Vector3.zero;
         rigidBodyRef.velocity = Vector3.zero;
+    }
+
+    public override void EnableVisuals()
+    {
+        Debug.Log("Enable vi", gameObject);
+        base.EnableVisuals();
+    }
+
+    public override void DisableVisuals()
+    {
+        base.DisableVisuals();
+        Stop();
     }
 }

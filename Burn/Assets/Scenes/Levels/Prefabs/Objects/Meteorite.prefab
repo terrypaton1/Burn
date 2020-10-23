@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliderRef: {fileID: 973406742734529633}
-  objectVariations: []
+  objectVariations:
+  - {fileID: 3575476405999282291}
   hasBeenCollidedWith: 0
   visualObject: {fileID: 1214742224690361769}
   rigidBodyRef: {fileID: 3896520419093179495}
@@ -120,6 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1214742224690361769}
+  - component: {fileID: 3575476405999282291}
   m_Layer: 9
   m_Name: VisualObject
   m_TagString: Untagged
@@ -142,6 +144,20 @@ Transform:
   m_Father: {fileID: 184484823514742032}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3575476405999282291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8384095818598891288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba00fcaf455e34228ae63b47fc210e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderers:
+  - {fileID: 7448956296114832319}
 --- !u!1001 &7831445385686213230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -244,6 +260,12 @@ PrefabInstance:
 --- !u!4 &7720396166089639301 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 134fc43ca607e43fc9cf4b0c252aa587,
+    type: 3}
+  m_PrefabInstance: {fileID: 7831445385686213230}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7448956296114832319 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 850864070107554257, guid: 134fc43ca607e43fc9cf4b0c252aa587,
     type: 3}
   m_PrefabInstance: {fileID: 7831445385686213230}
   m_PrefabAsset: {fileID: 0}

@@ -91,11 +91,6 @@ public class RespawnableObject : MonoBehaviour
 
     public virtual void EnableVisuals()
     {
-        if (showing)
-        {
-           // return;
-        }
-
         for (int i = 0; i < objectVariations.Length; ++i)
         {
             var obj = objectVariations[i];
@@ -114,11 +109,6 @@ public class RespawnableObject : MonoBehaviour
 
     public virtual void DisableVisuals()
     {
-        if (!showing)
-        {
-         //   return;
-        }
-
         foreach (var objectVariation in objectVariations)
         {
             objectVariation.Hide();
