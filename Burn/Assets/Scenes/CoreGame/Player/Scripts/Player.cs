@@ -192,7 +192,7 @@ public class Player : MonoBehaviour
         if (difference > 0.0f)
         {
             var rotationAmount = CoreConnector.GameInput.differenceInMovement.x * gameSettings.PlayerRotationRange;
-            rotationAmount = Mathf.Clamp(rotationAmount, -70.0f, 70.0f);
+            rotationAmount = Mathf.Clamp(rotationAmount, -160.0f, 160.0f);
             if (rotationAmount > 0 && rotationAmount > playerRotation.z ||
                 rotationAmount < 0 && rotationAmount < playerRotation.z)
             {
