@@ -91,7 +91,6 @@ public class Meteorite : RespawnableObject
 
     public override void EnableVisuals()
     {
-        Debug.Log("Enable vi", gameObject);
         base.EnableVisuals();
     }
 
