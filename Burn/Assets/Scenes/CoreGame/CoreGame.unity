@@ -612,10 +612,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2020178294, guid: 76347f234e7b94b708feda8a672c3e14, type: 3}
-      propertyPath: m_audioClip
+    - target: {fileID: 6885298096081922902, guid: 76347f234e7b94b708feda8a672c3e14,
+        type: 3}
+      propertyPath: collision2Clip
       value: 
-      objectReference: {fileID: 8300000, guid: 34e52427745492f44a4fe9ac2472951f, type: 3}
+      objectReference: {fileID: 8300000, guid: a577dcd5e58ea4f61834e80569243886, type: 3}
+    - target: {fileID: 6885298096081922902, guid: 76347f234e7b94b708feda8a672c3e14,
+        type: 3}
+      propertyPath: collision3Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a4f91f428c734c80b1a20768c20b83b, type: 3}
+    - target: {fileID: 6885298096081922902, guid: 76347f234e7b94b708feda8a672c3e14,
+        type: 3}
+      propertyPath: alertClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 89e6bc608da7b47d4914f3d9c2484e48, type: 3}
     - target: {fileID: 9025865326974901438, guid: 76347f234e7b94b708feda8a672c3e14,
         type: 3}
       propertyPath: m_Name

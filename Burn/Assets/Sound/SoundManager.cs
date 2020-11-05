@@ -7,34 +7,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField]
-    protected AudioSource buttonPressSource;
-
-    [SerializeField]
-    protected AudioSource alertSoundSource;
-
-    [SerializeField]
-    protected AudioSource explosionSource;
-
-    [SerializeField]
-    protected AudioSource collisionSource;
-
-    [SerializeField]
-    protected AudioSource solarFlareSource;
-
-    [SerializeField]
-    protected AudioSource collectLifeSource;
-
-    [SerializeField]
-    protected AudioSource collision2Source;
-
-    [SerializeField]
-    protected AudioSource collision3Source;
-
-    [SerializeField]
     protected AudioSource gameMusicSource;
-
-    [SerializeField]
-    protected AudioSource changeShipSource;
 
     [SerializeField]
     protected AudioSource levelCompleteSource;
@@ -44,10 +17,32 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField]
     protected AudioSource startLevelSource;
-    
+
     [SerializeField]
     protected AudioSource thanksSource;
-    
+
+    [SerializeField]
+    protected AudioSource buttonPressSource;
+
+    [SerializeField]
+    protected AudioSource playerAudioSource;
+
+    [Space(5)]
+    [SerializeField]
+    protected AudioClip explosionClip;
+
+    [SerializeField]
+    protected AudioClip alertClip;
+
+    [SerializeField]
+    protected AudioClip collisionClip;
+
+    [SerializeField]
+    protected AudioClip collectLifeClip;
+
+    [SerializeField]
+    protected AudioClip changeShipClip;
+
     protected void OnEnable()
     {
         CoreConnector.SoundManager = this;
@@ -63,37 +58,26 @@ public class SoundManager : MonoBehaviour
         switch (soundID)
         {
             case Sounds.Alert:
-                alertSoundSource.Play();
+                playerAudioSource.PlayOneShot(alertClip);
                 break;
             case Sounds.ButtonPress:
                 buttonPressSource.Play();
                 break;
             case Sounds.Explosion:
-                explosionSource.Play();
+                playerAudioSource.PlayOneShot(explosionClip);
                 break;
             case Sounds.Collision:
-                collisionSource.Play();
-                break;
-            case Sounds.SolarFlare:
-                solarFlareSource.Play();
+                playerAudioSource.PlayOneShot(collisionClip);
                 break;
             case Sounds.CollectLife:
-                collectLifeSource.Play();
-                break;
-
-            case Sounds.Collision2:
-                collision2Source.Play();
-                break;
-
-            case Sounds.Collision3:
-                collision3Source.Play();
+                playerAudioSource.PlayOneShot(collectLifeClip);
                 break;
             case Sounds.GameMusic:
                 gameMusicSource.Stop();
                 gameMusicSource.Play();
                 break;
             case Sounds.ChangeShip:
-                changeShipSource.Play();
+                playerAudioSource.PlayOneShot(changeShipClip);
                 break;
             case Sounds.LevelComplete:
                 levelCompleteSource.Play();
@@ -112,41 +96,25 @@ public class SoundManager : MonoBehaviour
                 break;
         }
     }
+
     public void StopSound(Sounds soundID)
     {
         switch (soundID)
         {
-            case Sounds.Alert:
-                alertSoundSource.Stop();
-                break;
             case Sounds.ButtonPress:
                 buttonPressSource.Stop();
                 break;
             case Sounds.Explosion:
-                explosionSource.Stop();
+                playerAudioSource.Stop();
                 break;
             case Sounds.Collision:
-                collisionSource.Stop();
-                break;
-            case Sounds.SolarFlare:
-                solarFlareSource.Stop();
+                playerAudioSource.Stop();
                 break;
             case Sounds.CollectLife:
-                collectLifeSource.Stop();
-                break;
-
-            case Sounds.Collision2:
-                collision2Source.Stop();
-                break;
-
-            case Sounds.Collision3:
-                collision3Source.Stop();
+                playerAudioSource.Stop();
                 break;
             case Sounds.GameMusic:
                 gameMusicSource.Stop();
-                break;
-            case Sounds.ChangeShip:
-                changeShipSource.Stop();
                 break;
             case Sounds.LevelComplete:
                 levelCompleteSource.Stop();
@@ -165,12 +133,12 @@ public class SoundManager : MonoBehaviour
                 break;
         }
     }
+
     public enum Sounds
     {
         Explosion,
         ButtonPress,
         Collision,
-        SolarFlare,
         Alert,
         CollectLife,
         StartLevel,

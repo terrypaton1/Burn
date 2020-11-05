@@ -336,16 +336,9 @@ public class Player : MonoBehaviour
         CoreConnector.UIControl.DisplayHealth();
     }
 
-    private SoundManager.Sounds[] explosionSounds = new[]
-    {
-        SoundManager.Sounds.Collision, SoundManager.Sounds.Collision2, SoundManager.Sounds.Collision3
-    };
-
     private void PlayRandomCollisionSound()
     {
-        var randomIndex = Random.Range(0, explosionSounds.Length);
-        var soundID = explosionSounds[randomIndex];
-        CoreConnector.SoundManager.PlaySound(soundID);
+        CoreConnector.SoundManager.PlaySound( SoundManager.Sounds.Collision);
     }
 
     private void ExplodePlayer()

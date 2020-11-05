@@ -30,10 +30,7 @@ public class GamePlay : UIGroup
         quitToMenuButton.Hide();
         healthDisplay.Hide();
 
-        CoreConnector.SoundManager.StopSound(SoundManager.Sounds.Alert);
         CoreConnector.SoundManager.StopSound(SoundManager.Sounds.StartLevel);
-        CoreConnector.SoundManager.StopSound(SoundManager.Sounds.Explosion);
-        CoreConnector.SoundManager.StopSound(SoundManager.Sounds.ChangeShip);
         CoreConnector.SoundManager.StopSound(SoundManager.Sounds.LevelComplete);
         CoreConnector.SoundManager.StopSound(SoundManager.Sounds.CollectLife);
     }
