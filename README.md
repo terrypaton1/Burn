@@ -1,6 +1,6 @@
 # Burn
 <p align="center"> 
-    <img src="./res/icon_128.jpg">
+    <img src="./res/BurnHeader.jpg">
 </p>
 Available to play in the Android google play store: <a href="https://play.google.com/store/apps/details?id=com.TerryPaton.Burn"> Burn </a>
 
