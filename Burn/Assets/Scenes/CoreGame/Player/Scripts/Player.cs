@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2020 Terry Paton. All rights reserved.
+﻿// Copyright ©2020 Terry Paton. All rights reserved.
 // This work is licensed under the terms of the MIT license.  
 // For a copy, see <https://opensource.org/licenses/MIT>.
 

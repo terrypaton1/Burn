@@ -140,11 +140,12 @@ Material:
     - _ColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
     - _EmisColor: {r: 0.12686568, g: 0.12686568, b: 0.12686568, a: 0}
     - _Emission: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.9245283, g: 0.79620683, b: 0, a: 1}
+    - _EmissionColor: {r: 0.8368256, g: 0.5974181, b: 0, a: 1}
     - _Scale: {r: 1, g: 1, b: 1, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 1, g: 0.9858052, b: 0.74626863, a: 0}
     - _TranslucencyColor: {r: 0.73, g: 0.85, b: 0.41, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1002 &2100001
 EditorExtensionImpl:
   serializedVersion: 6
@@ -160,4 +161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 2
+  version: 4
