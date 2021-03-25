@@ -23,7 +23,7 @@ public class Levels : MonoBehaviour
 
     public void RegisterLevel(CellManager level)
     {
-        LevelNames levelKey = level.GetID();
+        var levelKey = level.GetID();
         // store the level in a dictionary
         if (levelsDictionary.ContainsKey(levelKey))
         {
@@ -37,12 +37,14 @@ public class Levels : MonoBehaviour
 
     public void UnRegisterLevel(CellManager level)
     {
-        LevelNames levelKey = level.GetID();
-        if (levelsDictionary.ContainsKey(levelKey))
+        var levelKey = level.GetID();
+        if (!levelsDictionary.ContainsKey(levelKey))
         {
-            levelsDictionary.Remove(levelKey);
-            Debug.Log("UnRegisterLevel successful :"+levelKey);
+            return;
         }
+
+        levelsDictionary.Remove(levelKey);
+        Debug.Log("UnRegisterLevel successful :" + levelKey);
     }
 
     public void HideAllLevels()
@@ -96,7 +98,7 @@ public class Levels : MonoBehaviour
         currentLevel.Reset();
     }
 
-    public void SetupLevel()
+    private void SetupLevel()
     {
         currentLevel.SetupLevel();
     }

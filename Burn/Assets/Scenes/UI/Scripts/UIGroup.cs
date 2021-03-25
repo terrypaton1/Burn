@@ -15,11 +15,6 @@ public class UIGroup : MonoBehaviour
 
     protected void OnEnable()
     {
-        OnEnableFunction();
-    }
-
-    protected void OnEnableFunction()
-    {
         HideInstantly();
     }
 
@@ -39,7 +34,6 @@ public class UIGroup : MonoBehaviour
         }
 
         showing = false;
-        // todo become an animated process
         content.SetActive(false);
     }
 
@@ -47,10 +41,5 @@ public class UIGroup : MonoBehaviour
     {
         showing = false;
         content.SetActive(false);
-    }
-
-    public virtual UIDisplay GetUIDisplay()
-    {
-        return UIDisplay.Undefined;
     }
 }

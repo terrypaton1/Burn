@@ -31,9 +31,4 @@ public class LevelComplete : UIGroup
         playButton.HideInstantly();
         quitButton.HideInstantly();
     }
-
-    public override UIDisplay GetUIDisplay()
-    {
-        return UIDisplay.LevelComplete;
-    }
 }

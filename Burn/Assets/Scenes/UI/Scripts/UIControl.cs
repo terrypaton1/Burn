@@ -31,9 +31,6 @@ public class UIControl : MonoBehaviour
     protected Camera uiCamera;
 
     [SerializeField]
-    protected Text debugText;
-
-    [SerializeField]
     protected SceneTransition sceneTransition;
 
     private IEnumerator coroutine;
@@ -50,16 +47,18 @@ public class UIControl : MonoBehaviour
 
     public void Setup()
     {
-        uiGroups = new Dictionary<UIDisplay, UIGroup>();
-        uiGroups.Add(UIDisplay.LevelLoading, levelLoading);
-        uiGroups.Add(UIDisplay.LevelComplete, levelComplete);
-        uiGroups.Add(UIDisplay.MainMenu, mainMenu);
-        uiGroups.Add(UIDisplay.GamePlay, gamePlay);
-        uiGroups.Add(UIDisplay.GameOver, gameOver);
-        uiGroups.Add(UIDisplay.Settings, settings);
-        uiGroups.Add(UIDisplay.Thanks, thanks);
+        uiGroups = new Dictionary<UIDisplay, UIGroup>
+        {
+            {UIDisplay.LevelLoading, levelLoading},
+            {UIDisplay.LevelComplete, levelComplete},
+            {UIDisplay.MainMenu, mainMenu},
+            {UIDisplay.GamePlay, gamePlay},
+            {UIDisplay.GameOver, gameOver},
+            {UIDisplay.Settings, settings},
+            {UIDisplay.Thanks, thanks}
+        };
 
-        // enforce all gameobjects on, I kept manually turning them off to get them out of the way.
+        // enforce all GameObjects on, I kept manually turning them off to get them out of the way.
 
         foreach (var keyPair in uiGroups)
         {
@@ -213,11 +212,6 @@ public class UIControl : MonoBehaviour
         }
     }
 
-    public void DisplayDebug(string debugString)
-    {
-        debugText.text = debugString;
-    }
-
     private void EnableUICamera()
     {
         uiCamera.enabled = true;
@@ -251,18 +245,11 @@ public class UIControl : MonoBehaviour
 
     public void OpenEmail()
     {
-        string email = "terrypaton1@gmail.com";
-        string subject = MyEscapeURL("Burn");
-        Application.OpenURL("mailto:" + email + "?subject=" + subject);
+        Application.OpenURL("mailto:terrypaton1@gmail.com?subject=Burn");
     }
 
     public void OpenSethLink()
     {
         Application.OpenURL("https://twitter.com/SethLaster");
-    }
-
-    private string MyEscapeURL(string url)
-    {
-        return WWW.EscapeURL(url).Replace("+", "%20");
     }
 }

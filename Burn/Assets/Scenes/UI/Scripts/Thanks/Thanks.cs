@@ -39,9 +39,4 @@ public class Thanks : UIGroup
         quitButton.HideInstantly();
         sethButton.HideInstantly();
     }
-
-    public override UIDisplay GetUIDisplay()
-    {
-        return UIDisplay.Thanks;
-    }
 }

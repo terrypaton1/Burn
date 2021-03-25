@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
 
@@ -95,26 +94,26 @@ public class CellManager : MonoBehaviour
         SetStaticObjects();
     }
 
-    private List<Cell> GetRandomizedCellList(Cell[] _randomizedCells)
+    private List<Cell> GetRandomizedCellList(Cell[] cells)
     {
-        List<Cell> cellList = new List<Cell>(_randomizedCells);
+        var cellList = new List<Cell>(cells);
         cellList.Shuffle(rnd);
         return cellList;
     }
 
-    protected virtual void InsertChangeShipCells(ref List<Cell> cellList)
+    private void InsertChangeShipCells(ref List<Cell> cellList)
     {
         var stepSize = CalculateChangeShipInterval();
-        int counter1 = 0;
-        int shipCounter = 0;
+        var counter = 0;
+        var shipCounter = 0;
         var newList = new List<Cell>();
-        
+
         for (int i = 0; i < cellList.Count; ++i)
         {
             var nextCell = cellList[i];
             newList.Add(nextCell);
-            counter1++;
-            if (counter1 >= stepSize)
+            counter++;
+            if (counter >= stepSize)
             {
                 if (shipCounter < changeShipCells.Length)
                 {
@@ -123,9 +122,10 @@ public class CellManager : MonoBehaviour
                     shipCounter++;
                 }
 
-                counter1 = 0;
+                counter = 0;
             }
         }
+
         cellList = newList;
     }
 

@@ -13,18 +13,16 @@ public class RespawnableObject : MonoBehaviour
     protected bool eventTriggered;
     protected IEnumerator coroutine;
     protected int currentShowingIndex;
-    private bool showing;
 
     public virtual void Reset()
     {
-        showing = false;
         DisableVisuals();
         hasBeenCollidedWith = false;
         EnableColliders();
         RandomizeCurrentShowingIndex();
     }
 
-    protected void RandomizeCurrentShowingIndex()
+    private void RandomizeCurrentShowingIndex()
     {
         currentShowingIndex = Random.Range(0, objectVariations.Length);
     }
@@ -103,8 +101,6 @@ public class RespawnableObject : MonoBehaviour
                 obj.Hide();
             }
         }
-
-        showing = true;
     }
 
     public virtual void DisableVisuals()
@@ -113,8 +109,6 @@ public class RespawnableObject : MonoBehaviour
         {
             objectVariation.Hide();
         }
-
-        showing = false;
     }
 
     public void SetToStatic()

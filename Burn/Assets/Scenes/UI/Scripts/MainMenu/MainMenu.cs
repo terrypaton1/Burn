@@ -50,7 +50,7 @@ public class MainMenu : UIGroup
 
         timePassed += Time.deltaTime * 10.0f;
         timePassed %= FullRotation;
-        // use the amount of time passed as a radian, that osoclates like a pendulum
+        // use the amount of time passed as a radian, that oscillates like a pendulum
         var radians = timePassed * Mathf.Deg2Rad;
         var gameSettings = CoreConnector.Instance.GetGameSettings();
         var rotation = gameSettings.deviceYTiltValue * Mathf.Sin(radians);
@@ -111,10 +111,5 @@ public class MainMenu : UIGroup
         // Particles
         starField.Stop();
         starField.Clear();
-    }
-
-    public override UIDisplay GetUIDisplay()
-    {
-        return UIDisplay.MainMenu;
     }
 }

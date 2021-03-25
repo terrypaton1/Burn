@@ -73,9 +73,4 @@ public class GamePlay : UIGroup
         quitToMenuButton.HideInstantly();
         healthDisplay.HideInstantly();
     }
-
-    public override UIDisplay GetUIDisplay()
-    {
-        return UIDisplay.GamePlay;
-    }
 }

@@ -28,15 +28,6 @@ public class Loading : MonoBehaviour
         Application.targetFrameRate = targetFPS;
     }
 
-    protected void Update()
-    {
-        if (Application.targetFrameRate != targetFPS)
-        {
-            Debug.Log("setting frame rate to " + targetFPS);
-            Application.targetFrameRate = targetFPS;
-        }
-    }
-
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -59,7 +50,7 @@ public class Loading : MonoBehaviour
         StartCoroutine(StartUpGameSequence());
     }
 
-    private IEnumerator StartUpGameSequence()
+    private static IEnumerator StartUpGameSequence()
     {
         CoreConnector.UIControl.Setup();
         CoreConnector.UIControl.Display(UIDisplay.MainMenu);
@@ -78,17 +69,5 @@ public class Loading : MonoBehaviour
 
         var nextSceneToLoad = loadSceneQueue[currentLoadingIndex];
         SceneManager.LoadScene(nextSceneToLoad, LoadSceneMode.Additive);
-    }
-
-    private void GamePlayLevelLoaded()
-    {
-        //     CoreConnector.CoreGameControl.ResetGame();
-    }
-
-    private enum LoadingType
-    {
-        None,
-        Initial,
-        GamePlayLevel
     }
 }

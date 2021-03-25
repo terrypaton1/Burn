@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-//[ExecuteInEditMode]
 public class Cell : MonoBehaviour
 {
     [SerializeField]
@@ -27,19 +26,19 @@ public class Cell : MonoBehaviour
             return;
         }
 
-        foreach (var respawnableObject in respawnableObjects)
+        foreach (var obj in respawnableObjects)
         {
-            respawnableObject.UpdateLoop();
+            obj.UpdateLoop();
         }
     }
 
     public virtual void Reset()
     {
-        foreach (var spawn in respawnableObjects)
+        foreach (var obj in respawnableObjects)
         {
-            if (spawn != null)
+            if (obj != null)
             {
-                spawn.Reset();
+                obj.Reset();
             }
         }
     }
@@ -134,18 +133,19 @@ public class Cell : MonoBehaviour
 
     public virtual void DisableRenderers()
     {
-        foreach (var respawnableObject in respawnableObjects)
+        foreach (var obj in respawnableObjects)
         {
-            respawnableObject.DisableVisuals();
+            obj.DisableVisuals();
         }
+
         displayEnabled = false;
     }
 
-    public virtual void EnableRenderers()
+    public void EnableRenderers()
     {
-        foreach (var respawnableObject in respawnableObjects)
+        foreach (var obj in respawnableObjects)
         {
-            respawnableObject.EnableVisuals();
+            obj.EnableVisuals();
         }
     }
 }

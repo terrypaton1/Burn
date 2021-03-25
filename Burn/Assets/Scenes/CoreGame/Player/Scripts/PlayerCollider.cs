@@ -1,24 +1,29 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerCollider : MonoBehaviour
 {
     [SerializeField]
     protected Player player;
+
+    [FormerlySerializedAs("collider")]
     [SerializeField]
-    protected Collider collider;
-    
+    protected Collider colliderRef;
+
     private int collisionCounter;
     private const int collisionInterval = 1;
     private bool collisionIsActive;
 
     public void DisableCollider()
     {
-        collider.enabled = false;
+        colliderRef.enabled = false;
     }
+
     public void EnableCollider()
     {
-        collider.enabled = true;
+        colliderRef.enabled = true;
     }
+
     public void Reset()
     {
         collisionIsActive = false;
@@ -34,11 +39,11 @@ public class PlayerCollider : MonoBehaviour
         foreach (var contact in collision.contacts)
         {
             // allow for only 1 collision
-
             if (contact.otherCollider == null)
             {
                 continue;
             }
+
             var obj = GetRespawnableObjectFromParent(contact);
             SetObjectCollidedWith(obj);
             player.Collision(contact, collisionIsActive);
@@ -55,6 +60,7 @@ public class PlayerCollider : MonoBehaviour
         {
             return;
         }
+
         if (!obj.hasBeenCollidedWith)
         {
             obj.SetCollidedWith();
@@ -66,9 +72,9 @@ public class PlayerCollider : MonoBehaviour
         return contact.otherCollider.transform.parent.GetComponent<RespawnableObject>();
     }
 
-    protected void OnTriggerEnter(Collider colliderRef)
+    protected void OnTriggerEnter(Collider colliderObj)
     {
-        var obj = colliderRef.transform.parent.GetComponent<RespawnableObject>();
+        var obj = colliderObj.transform.parent.GetComponent<RespawnableObject>();
         if (obj == null)
         {
             return;
@@ -80,7 +86,7 @@ public class PlayerCollider : MonoBehaviour
         }
 
         obj.SetCollidedWith();
-        player.Trigger(colliderRef);
+        player.Trigger(colliderObj);
         collisionIsActive = true;
     }
 

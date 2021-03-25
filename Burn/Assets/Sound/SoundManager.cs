@@ -1,5 +1,6 @@
 ﻿#region
 
+using System.Collections.Generic;
 using UnityEngine;
 
 #endregion
@@ -43,9 +44,25 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     protected AudioClip changeShipClip;
 
+    private Dictionary<Sounds, AudioSource> sounds;
+
     protected void OnEnable()
     {
+        Setup();
+    }
+
+    private void Setup()
+    {
         CoreConnector.SoundManager = this;
+        sounds = new Dictionary<Sounds, AudioSource>
+        {
+            {Sounds.Alert, playerAudioSource},
+            {Sounds.ButtonPress, buttonPressSource},
+            {Sounds.LevelComplete, levelCompleteSource},
+            {Sounds.TransitionSound, transitionSoundSource},
+            {Sounds.StartLevel, startLevelSource},
+            {Sounds.Thanks, thanksSource}
+        };
     }
 
     protected void OnDisable()
@@ -55,61 +72,35 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(Sounds soundID)
     {
+        // handle some special cases
         switch (soundID)
         {
-            case Sounds.Alert:
-                playerAudioSource.PlayOneShot(alertClip);
-                break;
-            case Sounds.ButtonPress:
-                buttonPressSource.Play();
-                break;
             case Sounds.Explosion:
                 playerAudioSource.PlayOneShot(explosionClip);
-                break;
+                return;
             case Sounds.Collision:
                 playerAudioSource.PlayOneShot(collisionClip);
-                break;
+                return;
             case Sounds.CollectLife:
                 playerAudioSource.PlayOneShot(collectLifeClip);
-                break;
+                return;
             case Sounds.GameMusic:
                 gameMusicSource.Stop();
                 gameMusicSource.Play();
-                break;
+                return;
             case Sounds.ChangeShip:
                 playerAudioSource.PlayOneShot(changeShipClip);
-                break;
-            case Sounds.LevelComplete:
-                levelCompleteSource.Play();
-                break;
-            case Sounds.TransitionSound:
-                transitionSoundSource.Play();
-                break;
-            case Sounds.StartLevel:
-                startLevelSource.Play();
-                break;
-            case Sounds.Thanks:
-                thanksSource.Play();
-                break;
-            default:
-                Debug.Log("Sound ID not handled:" + soundID);
-                break;
+                return;
         }
+
+        var soundSource = GetSoundSource(soundID);
+        soundSource.Play();
     }
 
     public void StopSound(Sounds soundID)
     {
         switch (soundID)
         {
-            case Sounds.ButtonPress:
-                buttonPressSource.Stop();
-                break;
-            case Sounds.Explosion:
-                playerAudioSource.Stop();
-                break;
-            case Sounds.Collision:
-                playerAudioSource.Stop();
-                break;
             case Sounds.CollectLife:
                 playerAudioSource.Stop();
                 break;
@@ -119,19 +110,23 @@ public class SoundManager : MonoBehaviour
             case Sounds.LevelComplete:
                 levelCompleteSource.Stop();
                 break;
-            case Sounds.TransitionSound:
-                transitionSoundSource.Stop();
-                break;
             case Sounds.StartLevel:
                 startLevelSource.Stop();
                 break;
             case Sounds.Thanks:
                 thanksSource.Stop();
                 break;
+
             default:
                 Debug.Log("Sound ID not handled:" + soundID);
                 break;
         }
+    }
+
+    private AudioSource GetSoundSource(Sounds soundID)
+    {
+        sounds.TryGetValue(soundID, out var soundSource);
+        return soundSource;
     }
 
     public enum Sounds
@@ -146,8 +141,6 @@ public class SoundManager : MonoBehaviour
         LevelComplete,
         ChangeShip,
         GameMusic,
-        Collision2,
-        Collision3,
         Thanks
     }
 }

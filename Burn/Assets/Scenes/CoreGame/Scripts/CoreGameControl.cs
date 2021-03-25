@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class CoreGameControl : MonoBehaviour
 {
-
     private IEnumerator coroutine;
     public GameState currentGameState;
 
@@ -45,7 +44,6 @@ public class CoreGameControl : MonoBehaviour
     public void ManageControls()
     {
         // don't test the controls until 1 seconds into the game
-// use the game time passed
         if (HasInitialGameTimePassed())
         {
             CoreConnector.GameInput.ProcessMainTouchControls();
@@ -58,12 +56,7 @@ public class CoreGameControl : MonoBehaviour
 
     private static bool HasInitialGameTimePassed()
     {
-        if (CoreConnector.Player.TimePassed > 1.0f)
-        {
-            return true;
-        }
-
-        return false;
+        return CoreConnector.Player.TimePassed > 1.0f;
     }
 
     protected void LateUpdate()
@@ -80,19 +73,16 @@ public class CoreGameControl : MonoBehaviour
             case GameState.GameComplete:
                 LevelCompleteGameLoop.LateUpdateMainLoop();
                 // move the player towards the finish line
-                // then do seqeunce
                 break;
             case GameState.SpaceWarp:
                 SpaceWarpGameLoop.LateUpdateMainLoop();
                 // move the player towards the finish line
-                // then do seqeunce
                 break;
         }
     }
 
     public void PlayerKilled()
     {
-        //Debug.Log("Player has been killed");
         IsGameRunning = false;
         ChangeGameState(GameState.GameOver);
         CoreConnector.UIControl.Display(UIDisplay.GameOver);
