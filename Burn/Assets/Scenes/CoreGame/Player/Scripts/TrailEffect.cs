@@ -8,8 +8,6 @@ public class TrailEffect : MonoBehaviour
     [SerializeField]
     protected ParticleSystem[] particles;
 
-    private Vector2 scrollOffset;
-
     public void Show()
     {
         foreach (var trail in trails)

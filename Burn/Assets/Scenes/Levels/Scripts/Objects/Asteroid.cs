@@ -6,8 +6,7 @@ public class Asteroid : RespawnableObject
     protected Transform visualObject;
 
     private Vector3 rotationAmount;
-    private MeshRenderer currentRenderer;
-
+    
     public override void Reset()
     {
         base.Reset();

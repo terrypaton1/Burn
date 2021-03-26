@@ -12,7 +12,6 @@ public class Loading : MonoBehaviour
     private const int targetFPS = 60;
 
     private readonly string[] loadSceneQueue = {UI, CoreGame, Level1, Level2};
-    private IEnumerator gameLevelCoroutine;
 
     private void OnEnable()
     {

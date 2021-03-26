@@ -5,24 +5,21 @@ public class GameInput : MonoBehaviour
     [SerializeField]
     protected GameSettings gameSettings;
 
-    private Vector2 pos;
     private Touch theTouch;
-
     private float xMovementFactor;
-    private Vector3 currentPosition = new Vector3(6, 0, 0);
-    private float xMovementValue;
     private float xOffset;
     private float xDifference;
-    private bool controlsDisabledFromCollision;
     private int controlsDisabledCounter;
+    private bool controlsDisabledFromCollision;
 
+    public Vector3 differenceInMovement;
+    private Vector3 currentPosition = new Vector3(6, 0, 0);
     private Vector3 touchPosition;
     private Vector3 diff;
     private Vector3 displayOffset;
     private Vector3 shipOffset;
     private Vector3 firstTouch;
     private Vector3 shipPosition;
-    public Vector3 differenceInMovement;
     private Vector3 lastPosition;
 
     private void OnEnable()
@@ -96,7 +93,7 @@ public class GameInput : MonoBehaviour
 
         var mousePosition = Input.mousePosition;
         xOffset = mousePosition.x / Screen.width;
-        xMovementFactor = -8 + xOffset * gameSettings.xMovementRange;
+        xMovementFactor = -8.0f + xOffset * gameSettings.xMovementRange;
     }
 
     public void PositionShipWithDisplayOffset()
@@ -109,7 +106,7 @@ public class GameInput : MonoBehaviour
         displayOffset.z = Mathf.Clamp(displayOffset.z, -15.0f, 15.0f);
 
         shipPosition += displayOffset;
-        shipPosition.y = 0;
+        shipPosition.y = 0.0f;
 
         differenceInMovement = lastPosition - shipPosition;
     }
@@ -219,6 +216,6 @@ public class GameInput : MonoBehaviour
 
     public void SetCurrentPositionX(float newX)
     {
-         currentPosition.x = newX;
+        currentPosition.x = newX;
     }
 }

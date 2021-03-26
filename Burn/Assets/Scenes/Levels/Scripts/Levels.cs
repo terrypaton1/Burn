@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -33,18 +32,6 @@ public class Levels : MonoBehaviour
         {
             levelsDictionary.Add(levelKey, level);
         }
-    }
-
-    public void UnRegisterLevel(CellManager level)
-    {
-        var levelKey = level.GetID();
-        if (!levelsDictionary.ContainsKey(levelKey))
-        {
-            return;
-        }
-
-        levelsDictionary.Remove(levelKey);
-        Debug.Log("UnRegisterLevel successful :" + levelKey);
     }
 
     public void HideAllLevels()

@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CoreGameControl : MonoBehaviour
 {
-    private IEnumerator coroutine;
     public GameState currentGameState;
 
     public bool IsGameRunning
@@ -41,7 +39,7 @@ public class CoreGameControl : MonoBehaviour
         CoreConnector.WorldSides.SetPosition(playerPosition);
     }
 
-    public void ManageControls()
+    public static void ManageControls()
     {
         // don't test the controls until 1 seconds into the game
         if (HasInitialGameTimePassed())
@@ -121,22 +119,22 @@ public class CoreGameControl : MonoBehaviour
         currentGameState = GameState.Stopped;
     }
 
-    public void DisableGameRenderers()
+    public void ChangeGameState(GameState state)
+    {
+        currentGameState = state;
+    }
+
+    public static void DisableGameRenderers()
     {
         CoreConnector.Levels.HideAllLevels();
         CoreConnector.CameraControl.DisableRenderers();
         CoreConnector.WorldSides.DisableRenderers();
     }
 
-    private void EnableGameRenderers()
+    private static void EnableGameRenderers()
     {
         CoreConnector.Levels.EnableRenderers();
         CoreConnector.CameraControl.EnableRenderers();
         CoreConnector.WorldSides.EnableRenderers();
-    }
-
-    public void ChangeGameState(GameState state)
-    {
-        currentGameState = state;
     }
 }

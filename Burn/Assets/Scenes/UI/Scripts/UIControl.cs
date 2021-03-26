@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine.Assertions;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIControl : MonoBehaviour
 {
@@ -35,7 +34,7 @@ public class UIControl : MonoBehaviour
 
     private IEnumerator coroutine;
 
-    private readonly float HidingTime = 0.3f;
+    private const float HidingTime = 0.3f;
 
     private Dictionary<UIDisplay, UIGroup> uiGroups;
     private UIGroup currentUIGroup;
@@ -171,7 +170,7 @@ public class UIControl : MonoBehaviour
 
         if (uiDisplay == UIDisplay.MainMenu)
         {
-            CoreConnector.CoreGameControl.DisableGameRenderers();
+            CoreGameControl.DisableGameRenderers();
         }
     }
 

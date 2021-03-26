@@ -2,7 +2,7 @@
 {
     public static void LateUpdateMainLoop()
     {
-        CoreConnector.Player.MovePlayerToFinalPosition();
+        Player.MovePlayerToFinalPosition();
 
         CoreConnector.Levels.UpdateLoop();
 

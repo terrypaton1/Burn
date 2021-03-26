@@ -7,7 +7,7 @@
 // rotate the camera down
         CoreConnector.CameraControl.AngleCameraForLevelComplete();
         // now move the player around 
-        CoreConnector.CoreGameControl.ManageControls();
+        CoreGameControl.ManageControls();
 
         
         var pos = CoreConnector.GameInput.GetShipPosition();

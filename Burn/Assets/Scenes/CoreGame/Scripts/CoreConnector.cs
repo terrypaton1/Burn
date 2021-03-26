@@ -29,14 +29,31 @@ public class CoreConnector : MonoBehaviour
 
     private static SoundManager soundManager;
 
-    private static CellManager cellManager;
-
     private static ParticleManager particleManager;
     private static Levels levels;
 
     public static CoreConnector Instance
     {
         get { return instance; }
+    }
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            //Debug.Log("Core Connector already found");
+            return;
+        }
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
+    private void OnDisable()
+    {
+        instance = null;
     }
 
     public static Levels Levels
@@ -138,25 +155,6 @@ public class CoreConnector : MonoBehaviour
             return particleManager;
         }
         set => particleManager = value;
-    }
-
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            //Debug.Log("Core Connector already found");
-            return;
-        }
-
-        if (instance == null)
-        {
-            instance = this;
-        }
-    }
-
-    private void OnDisable()
-    {
-        instance = null;
     }
 
     public static bool IsLevelsLoaded

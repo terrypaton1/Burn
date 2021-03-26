@@ -34,16 +34,12 @@ public class Player : MonoBehaviour
 
     private float health;
     private float timePassed;
-
-    private Vector3 lastPosition;
-
     private float playerZ;
     private float currentThrust;
     private float currentZSpeed = 1.0f;
+    private const float collisionPushBackForce = 1.0f;
 
     private Vector3 playerRotation = Vector3.zero;
-
-    private const float collisionPushBackForce = 1.0f;
 
     public float CurrentThrust
     {
@@ -121,10 +117,10 @@ public class Player : MonoBehaviour
         rigidBodyRef.AddRelativeTorque(randomForce);
     }
 
-    public void MovePlayerToFinalPosition()
+    public static void MovePlayerToFinalPosition()
     {
         // move the player to the center of the screen
-        CoreConnector.GameInput.SetCurrentPositionX( 6.0f);
+        CoreConnector.GameInput.SetCurrentPositionX(6.0f);
     }
 
     public Vector3 GetCurrentPosition()
@@ -144,14 +140,9 @@ public class Player : MonoBehaviour
     {
         var finalStop = CoreConnector.Levels.GetFinishLineStopPosition();
 
-        var playerZ = GetCurrentPosition().z;
+        var playerZPosition = GetCurrentPosition().z;
 
-        if (playerZ > finalStop.z)
-        {
-            return true;
-        }
-
-        return false;
+        return playerZPosition > finalStop.z;
     }
 
     public void ManageMovement()
@@ -187,7 +178,6 @@ public class Player : MonoBehaviour
 
     public void ManageAndDisplayPlayerRotation()
     {
-        // get the amoutn of rotation from Game
         var difference = Mathf.Abs(CoreConnector.GameInput.differenceInMovement.sqrMagnitude);
         if (difference > 0.0f)
         {
@@ -293,7 +283,7 @@ public class Player : MonoBehaviour
     private void PushPlayerBasedOnSideOfScreen()
     {
         var playerPosition = GetCurrentPosition();
-        if (playerPosition.x > 0)
+        if (playerPosition.x > 0.0f)
         {
             CoreConnector.GameInput.PushBackPlayer(collisionPushBackForce);
         }
@@ -338,7 +328,7 @@ public class Player : MonoBehaviour
 
     private void PlayRandomCollisionSound()
     {
-        CoreConnector.SoundManager.PlaySound( SoundManager.Sounds.Collision);
+        CoreConnector.SoundManager.PlaySound(SoundManager.Sounds.Collision);
     }
 
     private void ExplodePlayer()
@@ -372,11 +362,11 @@ public class Player : MonoBehaviour
         playerModelManager.Show(displayType);
 
         AddHealth(0.1f);
-        // each ship has a specific set power based on how far through the level you are
+        // each ship has a specific speed based on how far through the level you are
         CalculatePlayerSpeedBasedOnPercent();
 
         CoreConnector.CameraControl.PunchBackSun();
-        // Don't playa sound for the first ship
+        // Don't play a sound for the first ship
         if (displayType != PlayerDisplayType.type0)
         {
             CoreConnector.SoundManager.PlaySound(SoundManager.Sounds.ChangeShip);

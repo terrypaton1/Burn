@@ -89,11 +89,6 @@ public class Meteorite : RespawnableObject
         rigidBodyRef.velocity = Vector3.zero;
     }
 
-    public override void EnableVisuals()
-    {
-        base.EnableVisuals();
-    }
-
     public override void DisableVisuals()
     {
         base.DisableVisuals();

@@ -49,10 +49,6 @@ public class CameraControl : MonoBehaviour
 
     private const float CenterX = 6.0f;
     private Vector3 currentPosition;
-    private Vector3 velocity;
-    private float timePassed;
-    private Vector3 cameraPivotAngle;
-    private float currentCameraPivotX;
 
     private readonly Vector3 cameraHeightLevelCompletePosition = new Vector3(0, 5.0f, -14.0f);
 
@@ -79,7 +75,7 @@ public class CameraControl : MonoBehaviour
         angleTransform.localEulerAngles = Vector3.zero;
     }
 
-    public void ManageCameraPosition()
+    private void ManageCameraPosition()
     {
         var target = CoreConnector.Player.GetCameraFocusPosition();
         var xDiff = target.x - CenterX;
@@ -91,7 +87,7 @@ public class CameraControl : MonoBehaviour
         currentPosition = target;
     }
 
-    public void ApplyAngleToCameraBasedOnSpeed()
+    private void ApplyAngleToCameraBasedOnSpeed()
     {
         var speedPercent = CoreConnector.Player.CurrentThrust / 50.0f;
         var percentAngle = speedPercent * targetAngle;
@@ -106,7 +102,7 @@ public class CameraControl : MonoBehaviour
 
     public void AngleCameraForLevelComplete()
     {
-        var target = -60;
+        const float target = -60.0f;
         var diff = target - xAngle;
         xAngle += diff * 0.02f;
 
@@ -135,7 +131,7 @@ public class CameraControl : MonoBehaviour
         return CenterX + xDiff * 0.3f;
     }
 
-    public void DisplayCameraPosition()
+    private void DisplayCameraPosition()
     {
         cameraHolder.position = currentPosition;
         distanceTracker.DisplayProgress();
@@ -171,13 +167,6 @@ public class CameraControl : MonoBehaviour
     {
         var p = new Vector3(touchPosition.x, touchPosition.y, orthoCameraRef.nearClipPlane);
         return orthoCameraRef.ScreenToWorldPoint(p);
-    }
-
-    public void MoveDistantStarsForGameComplete()
-    {
-        var pos = distantStarHolder.localPosition;
-        pos.z -= 0.5f;
-        distantStarHolder.localPosition = pos;
     }
 
     public void DisableRenderers()
@@ -220,10 +209,15 @@ public class CameraControl : MonoBehaviour
 
     public void LevelCompleteLoop()
     {
-        
         ManageCameraPosition();
         DisplayCameraPosition();
         MoveDistantStarsForGameComplete();
     }
 
+    private void MoveDistantStarsForGameComplete()
+    {
+        var pos = distantStarHolder.localPosition;
+        pos.z -= 0.5f;
+        distantStarHolder.localPosition = pos;
+    }
 }

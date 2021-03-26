@@ -2,7 +2,7 @@
 {
     public static void UpdateMainLoop()
     {
-        CoreConnector.CoreGameControl.ManageControls();
+        CoreGameControl.ManageControls();
         CoreConnector.CoreGameControl.SetWorldSidePositionToMatchPlayer();
 
         CoreConnector.Player.ManageGamePlay();
