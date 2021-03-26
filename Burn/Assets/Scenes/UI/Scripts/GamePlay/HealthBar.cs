@@ -52,6 +52,7 @@ public class HealthBar : MonoBehaviour
     public void Show()
     {
         content.SetActive(true);
+        healthWarning.Display(1.0f);
     }
 
     public void Hide()

@@ -1,9 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class UIGroup : MonoBehaviour
 {
     [SerializeField]
-    protected GameObject content;
+    protected Renderer[] renderers;
+
+    [SerializeField]
+    protected Image[] images;
+
+    [SerializeField]
+    protected Text[] text;
 
     protected bool showing;
     public int showCount;
@@ -23,7 +30,9 @@ public class UIGroup : MonoBehaviour
         showing = true;
         showCount = ShowCount + 1;
         // todo make this an animated process
-        content.SetActive(true);
+        // todo make the renderers get enabled/activated rather than the whole game object tree enabling etc
+        //  content.SetActive(true);
+        SetRendererState(true);
     }
 
     public virtual void Hide()
@@ -34,12 +43,32 @@ public class UIGroup : MonoBehaviour
         }
 
         showing = false;
-        content.SetActive(false);
+        // content.SetActive(false);
+        SetRendererState(false);
     }
 
     public virtual void HideInstantly()
     {
         showing = false;
-        content.SetActive(false);
+        //  content.SetActive(false);
+        SetRendererState(false);
+    }
+
+    protected virtual void SetRendererState(bool state)
+    {
+        foreach (var rendererRef in renderers)
+        {
+            rendererRef.enabled = state;
+        }
+
+        foreach (var imageRef in images)
+        {
+            imageRef.enabled = state;
+        }
+
+        foreach (var textRef in text)
+        {
+            textRef.enabled = state;
+        }
     }
 }

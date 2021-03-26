@@ -40,11 +40,14 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: c6e72ab9552ef4bec9e359931a67a39f, type: 3}
-    totalSpriteSurfaceArea: 491776
+    totalSpriteSurfaceArea: 246016
     bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: dd2eb64135cc44500a036474c7043949, type: 3}
@@ -62,5 +65,6 @@ SpriteAtlas:
   - TransitionGraphic
   - DistanceBarShipMarker
   - ShipIcon
+  m_RenderDataMap: {}
   m_Tag: UIAtlas
   m_IsVariant: 0

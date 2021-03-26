@@ -7,7 +7,7 @@ public class MenuButton : MonoBehaviour
     protected Transform container;
 
     [SerializeField]
-    protected Vector3 offScreenLocalPosition = new Vector3(-1000.0f, 0.0f, 0.0f);
+    protected Vector3 offScreenLocalPosition = new Vector3(-1500.0f, 0.0f, 0.0f);
 
     private IEnumerator coroutine;
     private bool displayed;

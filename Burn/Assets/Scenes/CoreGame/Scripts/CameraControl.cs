@@ -137,7 +137,7 @@ public class CameraControl : MonoBehaviour
         distanceTracker.DisplayProgress();
     }
 
-    private void DisableVisuals()
+    public void DisableVisuals()
     {
         cameraRef.enabled = false;
         starField.Stop();
@@ -171,6 +171,7 @@ public class CameraControl : MonoBehaviour
 
     public void DisableRenderers()
     {
+        DisableVisuals();
         distantStarHolder.gameObject.SetActive(false);
         distanceTracker.DisableRenderers();
         sun.DisableRenderers();
@@ -179,6 +180,7 @@ public class CameraControl : MonoBehaviour
 
     public void EnableRenderers()
     {
+        EnableVisuals();
         distantStarHolder.gameObject.SetActive(true);
         distanceTracker.EnableRenderers();
         sun.EnableRenderers();

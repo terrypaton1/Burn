@@ -88,6 +88,7 @@ public class CoreGameControl : MonoBehaviour
 
     public void ResetGame()
     {
+        Debug.Log("reset game");
         ChangeGameState(GameState.StartUp);
         CoreConnector.UIControl.Display(UIDisplay.GamePlay);
         CoreConnector.CameraControl.ResetPosition();
@@ -117,6 +118,12 @@ public class CoreGameControl : MonoBehaviour
     {
         IsGameRunning = false;
         currentGameState = GameState.Stopped;
+
+        CoreConnector.SoundManager.StopSound(SoundManager.Sounds.StartLevel);
+        CoreConnector.SoundManager.StopSound(SoundManager.Sounds.LevelComplete);
+        CoreConnector.SoundManager.StopSound(SoundManager.Sounds.CollectLife);
+
+        CoreConnector.CameraControl.DisableVisuals();
     }
 
     public void ChangeGameState(GameState state)

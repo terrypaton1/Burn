@@ -12,6 +12,7 @@ public class Loading : MonoBehaviour
     private const int targetFPS = 60;
 
     private readonly string[] loadSceneQueue = {UI, CoreGame, Level1, Level2};
+    private IEnumerator onSceneLoadedCoroutine;
 
     private void OnEnable()
     {
@@ -40,6 +41,19 @@ public class Loading : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (onSceneLoadedCoroutine != null)
+        {
+            StopCoroutine(onSceneLoadedCoroutine);
+        }
+
+        onSceneLoadedCoroutine = OnSceneLoadedSequence();
+        StartCoroutine(onSceneLoadedCoroutine);
+    }
+
+    private IEnumerator OnSceneLoadedSequence()
+    {
+        // wait a moment before loading the next one to spread out the load
+        yield return new WaitForSeconds(0.1f);
         LoadNextSceneInQueue();
         currentLoadingIndex++;
     }
@@ -53,6 +67,7 @@ public class Loading : MonoBehaviour
     {
         CoreConnector.UIControl.Setup();
         CoreConnector.UIControl.Display(UIDisplay.MainMenu);
+
         yield return new WaitForSeconds(0.5f);
         CoreConnector.WorldSides.Setup();
     }

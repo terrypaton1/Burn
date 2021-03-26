@@ -2,7 +2,7 @@
 
 public class MainMenu : UIGroup
 {
-    [SerializeField]
+    [Header("Buttons"), SerializeField]
     protected MenuButton playButton;
 
     [SerializeField]
@@ -17,14 +17,17 @@ public class MainMenu : UIGroup
     [SerializeField]
     protected MenuButton emailButton;
 
+    [Header("Camera"), SerializeField]
+    protected Camera mainMenuCamera;
+
     [SerializeField]
+    protected Transform cameraPivot;
+
+    [Header("Other"), SerializeField]
     protected Transform[] resetRotations;
 
     [SerializeField]
     protected ParticleSystem starField;
-
-    [SerializeField]
-    protected Transform cameraPivot;
 
     private Vector3 cameraPivotAngle = Vector3.zero;
     private float timePassed;
@@ -111,5 +114,11 @@ public class MainMenu : UIGroup
         // Particles
         starField.Stop();
         starField.Clear();
+    }
+
+    protected override void SetRendererState(bool state)
+    {
+        base.SetRendererState(state);
+        mainMenuCamera.enabled = state;
     }
 }

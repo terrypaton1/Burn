@@ -11,6 +11,9 @@ public class Thanks : UIGroup
     [SerializeField]
     protected ParticleSystem starField;
 
+    [SerializeField]
+    protected Camera thanksCamera;
+
     public override void Show()
     {
         base.Show();
@@ -38,5 +41,11 @@ public class Thanks : UIGroup
         base.HideInstantly();
         quitButton.HideInstantly();
         sethButton.HideInstantly();
+    }
+
+    protected override void SetRendererState(bool state)
+    {
+        base.SetRendererState(state);
+        thanksCamera.enabled = state;
     }
 }

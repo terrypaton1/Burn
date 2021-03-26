@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 2973657263167717922}
-  offScreenLocalPosition: {x: -1000, y: 0, z: 0}
+  offScreenLocalPosition: {x: 750, y: 0, z: 0}
 --- !u!1 &6952932716563358347
 GameObject:
   m_ObjectHideFlags: 0

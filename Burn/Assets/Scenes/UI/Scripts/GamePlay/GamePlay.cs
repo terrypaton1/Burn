@@ -29,10 +29,6 @@ public class GamePlay : UIGroup
         CoreConnector.CoreGameControl.StopGame();
         quitToMenuButton.Hide();
         healthDisplay.Hide();
-
-        CoreConnector.SoundManager.StopSound(SoundManager.Sounds.StartLevel);
-        CoreConnector.SoundManager.StopSound(SoundManager.Sounds.LevelComplete);
-        CoreConnector.SoundManager.StopSound(SoundManager.Sounds.CollectLife);
     }
 
     public override void Show()
