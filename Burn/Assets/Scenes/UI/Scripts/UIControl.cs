@@ -21,9 +21,6 @@ public class UIControl : MonoBehaviour
     protected UIGroup levelComplete;
 
     [SerializeField]
-    protected UIGroup levelLoading;
-
-    [SerializeField]
     protected UIGroup thanks;
 
     [SerializeField]
@@ -42,13 +39,13 @@ public class UIControl : MonoBehaviour
     protected void OnEnable()
     {
         CoreConnector.UIControl = this;
+        sceneTransition.AnimateTransitionIn();
     }
 
     public void Setup()
     {
         uiGroups = new Dictionary<UIDisplay, UIGroup>
         {
-            {UIDisplay.LevelLoading, levelLoading},
             {UIDisplay.LevelComplete, levelComplete},
             {UIDisplay.MainMenu, mainMenu},
             {UIDisplay.GamePlay, gamePlay},
@@ -161,16 +158,17 @@ public class UIControl : MonoBehaviour
         currentUIGroup.Show();
 
         // Level loading does not put away the transition, it is put away by the gameplay
-        if (uiDisplay != UIDisplay.LevelLoading)
-        {
-            // now load the game
 
-            PutAwayTransition();
-        }
+        PutAwayTransition();
+
+        yield return new WaitForSeconds(0.5f);
 
         if (uiDisplay == UIDisplay.MainMenu)
         {
+            // don't do this until the screen is covered with the transition
             CoreGameControl.DisableGameRenderers();
+            CoreConnector.CameraControl.DisableGameCamera();
+            CoreConnector.CameraControl.DisableVisuals();
         }
     }
 

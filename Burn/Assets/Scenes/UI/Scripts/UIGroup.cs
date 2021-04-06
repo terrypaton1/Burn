@@ -30,8 +30,6 @@ public class UIGroup : MonoBehaviour
         showing = true;
         showCount = ShowCount + 1;
         // todo make this an animated process
-        // todo make the renderers get enabled/activated rather than the whole game object tree enabling etc
-        //  content.SetActive(true);
         SetRendererState(true);
     }
 
@@ -43,14 +41,12 @@ public class UIGroup : MonoBehaviour
         }
 
         showing = false;
-        // content.SetActive(false);
         SetRendererState(false);
     }
 
     public virtual void HideInstantly()
     {
         showing = false;
-        //  content.SetActive(false);
         SetRendererState(false);
     }
 

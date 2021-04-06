@@ -12,7 +12,6 @@ public static class PlayModeStateChanged
 
     private static void LogPlayModeState(PlayModeStateChange state)
     {
-        Debug.Log(state);
         if (state == PlayModeStateChange.EnteredPlayMode)
         {
             Debug.Log("Auto loading loading scene");

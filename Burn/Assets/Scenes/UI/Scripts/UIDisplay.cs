@@ -1,6 +1,5 @@
 ﻿public enum UIDisplay
 {
-    LevelLoading,
     MainMenu,
     Settings,
     GamePlay,

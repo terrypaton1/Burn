@@ -61,6 +61,7 @@ public class CameraControl : MonoBehaviour
     {
         CoreConnector.CameraControl = this;
         DisableVisuals();
+        DisableGameCamera();
     }
 
     public void ResetPosition()
@@ -139,7 +140,6 @@ public class CameraControl : MonoBehaviour
 
     public void DisableVisuals()
     {
-        cameraRef.enabled = false;
         starField.Stop();
 
         foreach (var gameLight in gameLights)
@@ -150,7 +150,7 @@ public class CameraControl : MonoBehaviour
 
     public void EnableVisuals()
     {
-        cameraRef.enabled = true;
+        EnableGameCamera();
         starField.Play();
         foreach (var gameLight in gameLights)
         {
@@ -221,5 +221,15 @@ public class CameraControl : MonoBehaviour
         var pos = distantStarHolder.localPosition;
         pos.z -= 0.5f;
         distantStarHolder.localPosition = pos;
+    }
+
+    public void EnableGameCamera()
+    {
+        cameraRef.enabled = true;
+    }
+
+    public void DisableGameCamera()
+    {
+        cameraRef.enabled = false;
     }
 }
