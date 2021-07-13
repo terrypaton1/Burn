@@ -4,6 +4,7 @@ public class NonCollisionObjectBase : MonoBehaviour
 {
     [SerializeField]
     protected Transform visualObject;
+
     protected Vector3 rotationAmount;
 
     public virtual void Init()
@@ -14,11 +15,6 @@ public class NonCollisionObjectBase : MonoBehaviour
         visualObject.localEulerAngles = rotationAmount;
     }
 
-    protected virtual void RandomlyScale()
-    {
-        transform.localScale = Vector3.one * Random.Range(0.7f, 1.2f);
-    }
-
     protected virtual void RandomlyRotate()
     {
         rotationAmount = Random.insideUnitSphere * 180f;
@@ -27,11 +23,9 @@ public class NonCollisionObjectBase : MonoBehaviour
 
     public virtual void DisableRenderers()
     {
-     
     }
 
     public virtual void EnableRenderers()
     {
-      
     }
 }

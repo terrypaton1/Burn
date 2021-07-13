@@ -26,7 +26,7 @@ public class TrailManager : MonoBehaviour
     {
         var index = (int) type;
         var totalTrails = trails.Length;
-        Assert.IsTrue((index > -1 || index > totalTrails), "trail: " + type + " out of range" + totalTrails);
+        Assert.IsTrue(index > -1 || index > totalTrails, "trail: " + type + " out of range" + totalTrails);
 
         var currentTrail = trails[index];
         currentTrail.transform.localPosition = Vector3.zero;

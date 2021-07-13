@@ -8,9 +8,9 @@ public class FPSCounter : MonoBehaviour
     protected Text text;
 
     private float timer;
-    private float refresh = 1.0f;
+    private const float RefreshDelay = 1.0f;
     private float averageFramerate;
-    private readonly string display = "FPS:{0}";
+    private const string Display = "FPS:{0}";
     private float updateTime;
 
     protected void OnEnable()
@@ -37,22 +37,25 @@ public class FPSCounter : MonoBehaviour
         {
             averageFramerate = (int) (1.0f / timelapse);
         }
-        
+
         // only update the text field every 1 second.
         if (Time.time < updateTime)
         {
             return;
         }
+
         CalculateNextTime();
-        
-        text.text = string.Format(display, averageFramerate.ToString(CultureInfo.InvariantCulture));
+
+        text.text = string.Format(Display, averageFramerate.ToString(CultureInfo.InvariantCulture));
     }
 
     private float ManageTime(float timelapse)
     {
         if (timer <= 0)
-            return refresh;
-        else
-            return timer -= timelapse;
+        {
+            return RefreshDelay;
+        }
+
+        return timer -= timelapse;
     }
 }

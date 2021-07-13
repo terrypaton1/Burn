@@ -87,9 +87,9 @@ public class RespawnableObject : MonoBehaviour
         }
     }
 
-    public virtual void EnableVisuals()
+    public void EnableVisuals()
     {
-        for (int i = 0; i < objectVariations.Length; ++i)
+        for (var i = 0; i < objectVariations.Length; ++i)
         {
             var obj = objectVariations[i];
             if (i == currentShowingIndex)

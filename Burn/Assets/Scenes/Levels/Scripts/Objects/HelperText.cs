@@ -3,5 +3,4 @@
 [ExecuteInEditMode]
 public class HelperText : GameEventObject
 {
-
 }

@@ -12,7 +12,7 @@ public class MeteorShower : GameEventObject
     [SerializeField]
     protected bool leftSide;
 
-    private float asteroidSpacing = 5.0f;
+    private const float AsteroidSpacing = 5.0f;
 
     public override void Reset()
     {
@@ -66,22 +66,10 @@ public class MeteorShower : GameEventObject
         while (count < total)
         {
             var x = Mathf.RoundToInt(count / 4.0f);
-            var z = count - (x * 4);
+            var z = count - x * 4;
 
             var newPosition = CalculateMeteorPosition(position, x, z);
-            /*
-            var newPosition = position;
 
-            if (leftSide)
-            {
-                x = -x;
-            }
-
-            newPosition += new Vector3(x * asteroidSpacing, 0.0f, z * asteroidSpacing);
-            var randomRange = asteroidSpacing * 0.25f;
-            newPosition.x += Random.Range(-randomRange, randomRange);
-            newPosition.z += Random.Range(-randomRange, randomRange);
-            */
             var meteorite = meteorites[count];
             meteorite.SetPosition(newPosition);
             meteorite.Reset();
@@ -98,8 +86,8 @@ public class MeteorShower : GameEventObject
             x = -x;
         }
 
-        newPosition += new Vector3(x * asteroidSpacing, 0.0f, z * asteroidSpacing);
-        var randomRange = asteroidSpacing * 0.25f;
+        newPosition += new Vector3(x * AsteroidSpacing, 0.0f, z * AsteroidSpacing);
+        var randomRange = AsteroidSpacing * 0.25f;
         newPosition.x += Random.Range(-randomRange, randomRange);
         newPosition.z += Random.Range(-randomRange, randomRange);
         return newPosition;
@@ -109,8 +97,6 @@ public class MeteorShower : GameEventObject
     protected override void DrawGizmos()
     {
         var basePosition = transform.position;
-
-        var p1 = basePosition;
 
         var p2 = basePosition;
         if (leftSide)
@@ -122,7 +108,7 @@ public class MeteorShower : GameEventObject
             p2 += Vector3.right * GameSettings.CellWidth;
         }
 
-        Debug.DrawLine(p1, p2, Color.cyan);
+        Debug.DrawLine(basePosition, p2, Color.cyan);
 
         if (meteorites == null)
         {
@@ -134,11 +120,11 @@ public class MeteorShower : GameEventObject
             var metLoc = meteorite.transform.position;
 
             UnityEditor.Handles.color = Color.grey;
-            UnityEditor.Handles.DrawLine(p1, metLoc);
+            UnityEditor.Handles.DrawLine(basePosition, metLoc);
             var normalizedForce = meteorLaunchForce.normalized;
             UnityEditor.Handles.color = Color.magenta;
             var dir = Quaternion.LookRotation(normalizedForce);
-            UnityEditor.Handles.ArrowHandleCap(0, metLoc, dir, asteroidSpacing, EventType.Repaint);
+            UnityEditor.Handles.ArrowHandleCap(0, metLoc, dir, AsteroidSpacing, EventType.Repaint);
         }
     }
 #endif

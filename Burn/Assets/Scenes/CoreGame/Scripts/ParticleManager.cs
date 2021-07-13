@@ -7,7 +7,7 @@ public class ParticleManager : MonoBehaviour
     {
         Collect = 10,
         Collision = 20,
-        DestructibleCollsion = 30,
+        DestructibleCollision = 30,
         ChangeShip = 40,
         Explosion = 50
     }
@@ -47,7 +47,7 @@ public class ParticleManager : MonoBehaviour
     private ParticleEffect[] destructableCollisionPool;
     private int destructableIndex;
 
-    private readonly int explosionAmount = 1;
+    private const int ExplosionAmount = 1;
     private int explosionIndex;
     private ParticleEffect[] explosionPool;
 
@@ -69,7 +69,7 @@ public class ParticleManager : MonoBehaviour
 
     private void Start()
     {
-        explosionPool = CreatePool(explosionAmount, explosionPrefab);
+        explosionPool = CreatePool(ExplosionAmount, explosionPrefab);
         collisionPool = CreatePool(collisionAmount, collisionPrefab);
         collectPool = CreatePool(collectAmount, collectPrefab);
         destructableCollisionPool = CreatePool(destructableAmount, destructableCollisionPrefab);
@@ -93,7 +93,7 @@ public class ParticleManager : MonoBehaviour
         var obj = collectPool[collectIndex];
         obj.Show(position);
         collectIndex++;
-        collectIndex = collectIndex % collectAmount;
+        collectIndex %= collectAmount;
     }
 
     public void ShowExplosion(Vector3 position)
@@ -101,7 +101,7 @@ public class ParticleManager : MonoBehaviour
         var obj = explosionPool[explosionIndex];
         obj.Show(position);
         explosionIndex++;
-        explosionIndex = explosionIndex % explosionAmount;
+        explosionIndex %= ExplosionAmount;
     }
 
     public void ShowAsteroidExplosion(Vector3 position)
@@ -109,7 +109,7 @@ public class ParticleManager : MonoBehaviour
         var obj = asteroidExplosionPool[asteroidExplosionIndex];
         obj.Show(position);
         asteroidExplosionIndex++;
-        asteroidExplosionIndex = asteroidExplosionIndex % asteroidExplosionAmount;
+        asteroidExplosionIndex %= asteroidExplosionAmount;
     }
 
     public void ShowCollision(Vector3 position)
@@ -117,7 +117,7 @@ public class ParticleManager : MonoBehaviour
         var obj = collisionPool[collisionIndex];
         obj.Show(position);
         collisionIndex++;
-        collisionIndex = collisionIndex % collisionAmount;
+        collisionIndex %= collisionAmount;
     }
 
     public void ShowDestructableCollision(Vector3 position)
@@ -125,7 +125,7 @@ public class ParticleManager : MonoBehaviour
         var obj = destructableCollisionPool[destructableIndex];
         obj.Show(position);
         destructableIndex++;
-        destructableIndex = destructableIndex % collisionAmount;
+        destructableIndex %= collisionAmount;
     }
 
     public void ShowChangeShip(Vector3 position)
@@ -133,6 +133,6 @@ public class ParticleManager : MonoBehaviour
         var obj = changeShipEffectPool[changeShipIndex];
         obj.Show(position);
         changeShipIndex++;
-        changeShipIndex = changeShipIndex % changeShipAmount;
+        changeShipIndex %= changeShipAmount;
     }
 }

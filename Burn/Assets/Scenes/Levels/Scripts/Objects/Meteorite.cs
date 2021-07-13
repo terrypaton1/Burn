@@ -40,8 +40,8 @@ public class Meteorite : RespawnableObject
 
     private void StopIfOutOfWorldLimits()
     {
-        var xpos = transform.position.x;
-        if (xpos < -50.0f || xpos > 50.0f)
+        var xPos = transform.position.x;
+        if (xPos < -50.0f || xPos > 50.0f)
         {
             // gone outside the world limits
             Stop();

@@ -29,5 +29,4 @@ public class ChangeShip : GameEventObject
         // start the solar flare sequence
         CoreConnector.Player.ChangeShip(shipType);
     }
-
 }

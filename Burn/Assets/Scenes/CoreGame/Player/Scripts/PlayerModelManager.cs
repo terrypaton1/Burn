@@ -15,8 +15,8 @@ public class PlayerModelManager : MonoBehaviour
     {
         DisableAllModels();
         var totalModels = models.Length;
-        var index = (int)type;
-        Assert.IsTrue((index > -1 || index > totalModels), "Model: " + index + " out of range" + totalModels);
+        var index = (int) type;
+        Assert.IsTrue(index > -1 || index > totalModels, $"Model: {index}  out of range {totalModels}");
 
         var currentModel = models[index];
         currentModel.Show();

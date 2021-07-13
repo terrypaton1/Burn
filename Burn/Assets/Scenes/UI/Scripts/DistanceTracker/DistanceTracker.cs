@@ -36,7 +36,7 @@ public class DistanceTracker : MonoBehaviour
         progressMarker.localPosition = basePosition + Vector3.up * (6.0f * percent);
     }
 
-    private float GetPercentOfLevelComplete()
+    private static float GetPercentOfLevelComplete()
     {
         var targetPosition = CoreConnector.Levels.GetLevelEndLocation();
         var playerPosition = CoreConnector.Player.GetCurrentPosition();
@@ -88,7 +88,7 @@ public class DistanceTracker : MonoBehaviour
             shipMarker.Hide();
         }
 
-        for (int i = 0; i < shipMarkerCount; ++i)
+        for (var i = 0; i < shipMarkerCount; ++i)
         {
             var markerPercent = shipMarkers[i];
             var shipMarker = shipMarkerPool[i];
@@ -102,8 +102,8 @@ public class DistanceTracker : MonoBehaviour
     private Vector3 CalculateShipMarkerPosition(float percent)
     {
         var pos = markerStart.localPosition;
-        var MarkerBarVector = markerEnd.localPosition - pos;
-        pos += MarkerBarVector * percent;
+        var markerBarVector = markerEnd.localPosition - pos;
+        pos += markerBarVector * percent;
         return pos;
     }
 

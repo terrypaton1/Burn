@@ -1,4 +1,4 @@
-﻿public class LevelCompleteGameLoop
+﻿public static class LevelCompleteGameLoop
 {
     public static void LateUpdateMainLoop()
     {

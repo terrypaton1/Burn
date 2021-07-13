@@ -112,8 +112,8 @@ public class WorldSidePieceBase : MonoBehaviour
     protected Vector3 CalculatePosition(int x, int y, int z)
     {
         var position = transform.position;
-        position.x -= ((xSteps - 1) * xSpacing) * 0.5f;
-        position.y -= ((ySteps + 1) * ySpacing) * 0.5f;
+        position.x -= (xSteps - 1) * xSpacing * 0.5f;
+        position.y -= (ySteps + 1) * ySpacing * 0.5f;
 
         position.x += x * xSpacing;
         position.y += y * ySpacing;
@@ -185,8 +185,8 @@ public class WorldSidePieceBase : MonoBehaviour
     private Vector3 CalculateDebugPosition(int x, int y, int z)
     {
         var position = transform.position;
-        position.x -= ((xSteps - 1) * xSpacing) * 0.5f;
-        position.y -= ((ySteps + 1) * ySpacing) * 0.5f;
+        position.x -= (xSteps - 1) * xSpacing * 0.5f;
+        position.y -= (ySteps + 1) * ySpacing * 0.5f;
         position.x += x * xSpacing;
         position.y += y * ySpacing;
         position.z += z * zSpacing;

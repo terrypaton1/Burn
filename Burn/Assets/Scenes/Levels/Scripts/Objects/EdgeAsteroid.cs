@@ -8,7 +8,7 @@ public class EdgeAsteroid : NonCollisionObjectBase
         RandomlyRotate();
     }
 
-    protected override void RandomlyScale()
+    private void RandomlyScale()
     {
         transform.localScale = Vector3.one * Random.Range(0.7f, 1.2f);
     }

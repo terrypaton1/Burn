@@ -18,8 +18,8 @@ public class Sun : MonoBehaviour
     private Vector3 sunHolderLocation;
 
     private float sunPunchedBackOffset;
-    private float sunPunchAmount = -10.0f;
     private bool punchBackQueued;
+    private const float SunPunchAmount = -10.0f;
 
     protected void Update()
     {
@@ -29,7 +29,7 @@ public class Sun : MonoBehaviour
         }
 
         rotation.z += Time.deltaTime * 2.0f;
-        rotation.z = rotation.z % 360.0f;
+        rotation.z %= 360.0f;
         sunRotator.localEulerAngles = rotation;
 
         ManageSunPunchBack();
@@ -40,9 +40,9 @@ public class Sun : MonoBehaviour
         if (punchBackQueued)
         {
             sunPunchedBackOffset -= 0.3f;
-            if (sunPunchedBackOffset < sunPunchAmount)
+            if (sunPunchedBackOffset < SunPunchAmount)
             {
-                sunPunchedBackOffset = sunPunchAmount;
+                sunPunchedBackOffset = SunPunchAmount;
                 punchBackQueued = false;
             }
         }
@@ -51,7 +51,7 @@ public class Sun : MonoBehaviour
             if (sunPunchedBackOffset < 0.0f)
             {
                 sunPunchedBackOffset *= 0.998f;
-                sunPunchedBackOffset = Mathf.Clamp(sunPunchedBackOffset, sunPunchAmount, 0.0f);
+                sunPunchedBackOffset = Mathf.Clamp(sunPunchedBackOffset, SunPunchAmount, 0.0f);
             }
         }
 

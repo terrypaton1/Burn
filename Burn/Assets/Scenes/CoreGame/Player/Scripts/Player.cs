@@ -326,7 +326,7 @@ public class Player : MonoBehaviour
         CoreConnector.UIControl.DisplayHealth();
     }
 
-    private void PlayRandomCollisionSound()
+    private static void PlayRandomCollisionSound()
     {
         CoreConnector.SoundManager.PlaySound(SoundManager.Sounds.Collision);
     }
@@ -340,7 +340,6 @@ public class Player : MonoBehaviour
 
         EnableDeadBody();
 
-        // stop thrust
         trailManager.DisableAllTrails();
     }
 

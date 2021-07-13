@@ -11,7 +11,6 @@ public class GameSettings : ScriptableObject
 
     public static readonly float CellLength = 100.0f;
     public static readonly float CellWidth = 12.0f;
-    public static readonly float SolarFlareZOffset = -15.0f;
 
     [Header("Movement")]
     [Range(0, 3)]

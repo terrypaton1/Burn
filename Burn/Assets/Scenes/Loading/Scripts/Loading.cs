@@ -69,6 +69,7 @@ public class Loading : MonoBehaviour
         CoreConnector.UIControl.Display(UIDisplay.MainMenu);
 
         yield return new WaitForSeconds(0.5f);
+        
         CoreConnector.WorldSides.Setup();
     }
 

@@ -3,7 +3,7 @@
 public class DestructibleCollisionParticleEffect : ParticleEffect
 {
     [SerializeField]
-    protected int emitQuantity=50;
+    protected int emitQuantity = 50;
 
     public override void Show(Vector3 position)
     {

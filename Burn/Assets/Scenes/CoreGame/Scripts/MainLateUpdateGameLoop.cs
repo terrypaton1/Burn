@@ -1,4 +1,4 @@
-﻿public class MainLateUpdateGameLoop
+﻿public static class MainLateUpdateGameLoop
 {
     public static void UpdateMainLoop()
     {

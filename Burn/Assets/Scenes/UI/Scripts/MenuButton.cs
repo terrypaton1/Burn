@@ -11,8 +11,8 @@ public class MenuButton : MonoBehaviour
 
     private IEnumerator coroutine;
     private bool displayed;
-    private float timeToMoveOff = 0.3f;
-    private float timeToMoveOn = 0.3f;
+    private const float TimeToMoveOff = 0.3f;
+    private const float TimeToMoveOn = 0.3f;
 
     protected void OnEnable()
     {
@@ -65,9 +65,9 @@ public class MenuButton : MonoBehaviour
         yield return new WaitForSeconds(delay);
         var timer = 0.0f;
 
-        while (timer < timeToMoveOff)
+        while (timer < TimeToMoveOff)
         {
-            var percent = timer / timeToMoveOff;
+            var percent = timer / TimeToMoveOff;
             AnimateButtonOff(percent);
             yield return null;
             timer += Time.deltaTime;
@@ -80,9 +80,9 @@ public class MenuButton : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         var time = 0.0f;
-        while (time < timeToMoveOn)
+        while (time < TimeToMoveOn)
         {
-            var percent = time / timeToMoveOn;
+            var percent = time / TimeToMoveOn;
             AnimateButtonOn(percent);
             yield return null;
             time += Time.deltaTime;

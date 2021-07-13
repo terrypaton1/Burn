@@ -35,13 +35,13 @@ public class HealthBar : MonoBehaviour
             return Color.red;
         }
 
-        if (percent < 0.55f)
+        if (!(percent < 0.55f))
         {
-            var orange = Color.yellow + Color.red * 0.25f;
-            return orange;
+            return Color.green;
         }
 
-        return Color.green;
+        var orange = Color.yellow + Color.red * 0.25f;
+        return orange;
     }
 
     public void HideInstantly()

@@ -108,22 +108,23 @@ public class CellManager : MonoBehaviour
         var shipCounter = 0;
         var newList = new List<Cell>();
 
-        for (int i = 0; i < cellList.Count; ++i)
+        foreach (var nextCell in cellList)
         {
-            var nextCell = cellList[i];
             newList.Add(nextCell);
             counter++;
-            if (counter >= stepSize)
+            if (counter < stepSize)
             {
-                if (shipCounter < changeShipCells.Length)
-                {
-                    var cell = changeShipCells[shipCounter];
-                    newList.Add(cell);
-                    shipCounter++;
-                }
-
-                counter = 0;
+                continue;
             }
+
+            if (shipCounter < changeShipCells.Length)
+            {
+                var cell = changeShipCells[shipCounter];
+                newList.Add(cell);
+                shipCounter++;
+            }
+
+            counter = 0;
         }
 
         cellList = newList;
@@ -131,7 +132,7 @@ public class CellManager : MonoBehaviour
 
     private int CalculateChangeShipInterval()
     {
-        var value = Mathf.CeilToInt(randomizedCells.Length / (changeShipCells.Length));
+        var value = Mathf.CeilToInt(randomizedCells.Length / changeShipCells.Length);
         return value;
     }
 
@@ -261,32 +262,33 @@ public class CellManager : MonoBehaviour
             index = 0;
         }
 
-        if (index < maxIndexOfSortedCells)
+        if (index >= maxIndexOfSortedCells)
         {
-            if (index < amountOfStartCells)
-            {
-                var cell = startCells[index];
-                return cell;
-            }
-            else
-            {
-                // player is at one of the random cells
-                var currentCell = index - amountOfStartCells;
-                if (currentCell < 0)
-                {
-                    currentCell = 0;
-                }
-
-                //Debug.Log("currentCell:" + currentCell);
-                var cell = sortedCells[currentCell];
-                return cell;
-            }
-
-            // not testing events in the final cell.
+            return endCell;
         }
 
+        if (index < amountOfStartCells)
+        {
+            var cell = startCells[index];
+            return cell;
+        }
+        else
+        {
+            // player is at one of the random cells
+            var currentCell = index - amountOfStartCells;
+            if (currentCell < 0)
+            {
+                currentCell = 0;
+            }
+
+            //Debug.Log("currentCell:" + currentCell);
+            var cell = sortedCells[currentCell];
+            return cell;
+        }
+
+        // not testing events in the final cell.
+
         // must be an event in one of the event cells.          
-        return endCell;
     }
 
     public void DisableColliders()
